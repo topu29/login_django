@@ -5,7 +5,7 @@ from django.contrib import messages
 # Create your views here.
 from .models import *
 from .forms import UserForm, CreateUserForm
-
+from django.contrib.auth import authenticate,login,logout
 
 def signup(request):
     form = CreateUserForm()
@@ -17,11 +17,22 @@ def signup(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, 'User Created Successfully for' + user)
-            return redirect('login/')
+            return redirect('login')
 
-    context = { 'form': form}
+    context = { 'form': form }
     return render(request, 'signup.html', context)
 
 
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        un = request.POST.get('username')
+        passwd = request.POST.get('password')
+        user = authenticate(request, username = un, password = passwd)
+        if user is not None:
+            login(user)
+            return redirect('home')
+        else:
+            messages.info(request,'Username or password is incorrect')
+
+    context = {}
+    return render(request, 'login.html', context)

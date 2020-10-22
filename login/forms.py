@@ -14,6 +14,7 @@ class UserForm(ModelForm):
         # fields = '__all__' same as before shows all fields of table
 
 class CreateUserForm(UserCreationForm):
+    # password1 = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = User
         fields = ['username', 'email','password1', 'password2']
