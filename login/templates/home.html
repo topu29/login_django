@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <html>
+    <head>
+      <link rel="stylesheet" href="{% static 'login/styles/main.css' %}" />
+    </head>
+    <body>
+      <ul
+        style="display: flex; justify-content: space-between; flex-wrap: wrap"
+      >
+        <div style="display: flex; align-items: center">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            color: white;
+          "
+        >
+          <marquee> Welcome {{request.user.get_full_name}}({{request.user}}) to your Homepage</marquee>
+        </div>
+
+        <div>
+          <li id="pull"><a href="{% url 'logoutUser' %}">Logout</a></li>
+        </div>
+      </ul>
+
+      <div class="footer">
+        <p>Footer</p>
+      </div>
+    </body>
+  </html>
+</html>
