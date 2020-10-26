@@ -51,3 +51,7 @@ def logoutUser(request):
 @login_required(login_url='loginUser')
 def homePage(request):
     return render(request,'home.html')
+
+@login_required(login_url='loginUser')
+def userPage(request):
+    return render(request,'user.html')
