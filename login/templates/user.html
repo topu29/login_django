@@ -10,8 +10,8 @@
         style="display: flex; justify-content: space-between; flex-wrap: wrap"
       >
         <div style="display: flex; align-items: center">
-          <li><a class="active" href="{% url 'homePage' %}">Home</a></li>
-          <li><a href="{% url 'userPage' %}">User</a></li>
+          <li><a class="" href="{% url 'homePage' %}">Home</a></li>
+          <li><a class="active" href="{% url 'userPage' %}">User</a></li>
           <li><a href="#contact">Meal Chart</a></li>
           <li><a href="#about">Expenses</a></li>
         </div>
@@ -25,9 +25,7 @@
           "
         >
           <marquee>
-            Welcome {{request.user.get_full_name}}({{request.user}}) to your
-            Homepage</marquee
-          >
+            Welcome {{request.user.get_full_name}}({{request.user}}) to your Userpage</marquee>
         </div>
 
         <div>

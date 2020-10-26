@@ -21,7 +21,7 @@ from login import views
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url('', include('login.urls')),
+    url('first_project/', include('login.urls')),
     # url('login/',views.login, name='login')
     
 ]
